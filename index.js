@@ -87,7 +87,7 @@ app.patch('/accounts/:name/active', async (req, res) => {
       return res.status(404).json({ error: 'Account not found' });
     }
 
-    account.isActive = isActive;
+    account.isActive = !isActive;
     await account.save();
 
     res.json(account);
